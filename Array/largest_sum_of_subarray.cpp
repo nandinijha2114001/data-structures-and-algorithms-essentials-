@@ -1,17 +1,17 @@
 #include<iostream>
 using namespace std;
-void printsubarray(int a[],int n){
+int largestsum(int a[],int n){
+    int large=0;
     for(int i=0;i<n;i++){
         for(int j=i;j<n;j++){
-            cout<<"(";
+            int s=0;
             for(int k=i;k<=j;k++){
-                cout<<a[k];
+                s=s+a[k];
             }
-            cout<<")";
+            large=max(large,s);
         }
-        cout<<endl;
     }
-    
+    return large;
 }
 int main(){
     int n,a[10];
@@ -19,7 +19,7 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    printsubarray(a,n);
+    cout<<"largest sum of subarray is "<<largestsum(a,n);
     return 0;
 }
  
